@@ -5,8 +5,7 @@
  * @data 2020-04-30
  * @author Jacopo Battilana
  * @email hexatech016@gmail.com
- * @license
- * @changeLog
+ * @license MIT
  */
 
 package HexaTech.Interactor;
