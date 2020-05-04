@@ -1,0 +1,150 @@
+Names: frequency
+
+ATM: 14
+Bank: 6
+Card: 5
+Cash: 5
+Machine: 3
+Account: 3
+Press: 3
+Touch: 3
+Processing: 3
+Fee: 3
+Network: 3
+Drive: 2
+Car: 2
+Way: 2
+Number: 2
+Checking: 2
+Amount: 2
+Money: 2
+Film: 1
+Football: 1
+Stuff: 1
+Automated: 1
+Teller: 1
+Convenience: 1
+Place: 1
+World: 1
+Mail: 1
+ATMs: 1
+Website: 1
+Child: 1
+Through: 1
+Debit: 1
+Diagram: 1
+Direction: 1
+Language: 1
+U.S.: 1
+Choice: 1
+English: 1
+Spanish: 1
+Identification: 1
+Pin: 1
+Menu: 1
+Savings: 1
+Example: 1
+Increment: 1
+Transaction: 1
+Slot: 1
+Hand: 1
+Corner: 1
+Message: 1
+Screen: 1
+Yes: 1
+
+Verbs: frequency
+
+Be: 8
+Have: 6
+Withdraw: 5
+Use: 4
+Insert: 4
+Enter: 4
+Like: 3
+Do: 3
+Check: 3
+Belong: 2
+Walk: 2
+Offer: 2
+Call: 2
+Select: 2
+Want: 2
+Give: 2
+Accept: 2
+Make: 1
+Play: 1
+Get: 1
+Sign: 1
+Receive: 1
+See: 1
+Avoid: 1
+Pay: 1
+Find: 1
+Incur: 1
+Drive: 1
+Watch: 1
+Face: 1
+Look: 1
+Show: 1
+Send: 1
+Know: 1
+Open: 1
+Forget: 1
+Touch: 1
+Press: 1
+Go: 1
+Ask: 1
+Account: 1
+Wish: 1
+Type: 1
+Confirm: 1
+Remember: 1
+Request: 1
+Wait: 1
+Process: 1
+Come: 1
+Locate: 1
+State: 1
+Range: 1
+
+Predicates: frequency
+
+Use it: 3
+Insert it: 2
+Make film: 1
+Play football: 1
+Do stuff: 1
+Get cash: 1
+Receive card: 1
+Withdraw cash: 1
+Belong which: 1
+Pay fee: 1
+Incur which: 1
+Incur fee: 1
+Have child: 1
+Use ATM: 1
+Show you: 1
+Insert card: 1
+Accept card: 1
+Send it: 1
+Know direction: 1
+Select language: 1
+Offer choice: 1
+Enter number: 1
+Give bank: 1
+Open account: 1
+Forget it: 1
+Call bank: 1
+Touch enter: 1
+Ask you: 1
+Have both: 1
+Select $: 1
+Enter amount: 1
+Withdraw you: 1
+Give cash: 1
+Request $: 1
+Process transaction: 1
+Have money: 1
+State this: 1
+Accept fee: 1

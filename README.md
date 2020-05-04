@@ -1,2 +1,1 @@
-# NaturalAPI_PoC
-Repository per il progetto (I.S. 19/20) NaturalAPI del gruppo HexaTech 
+[![Build Status](https://travis-ci.com/Hexatech016/Discover.svg?branch=NaturalAPI_Discover)](https://travis-ci.com/Hexatech016/Discover.svg?branch=NaturalAPI_Discover)
