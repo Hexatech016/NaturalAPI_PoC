@@ -26,4 +26,5 @@ public interface StanfordInterface {
      * @return List<DoubleStruct> - list of found elements.
      */
     List<DoubleStruct> extract(String content);
-}
+
+}//StanfordInterface

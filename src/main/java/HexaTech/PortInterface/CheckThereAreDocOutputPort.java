@@ -10,6 +10,15 @@
 
 package HexaTech.PortInterface;
 
+/**
+ * CheckThereAreDoc output interface.
+ */
 public interface CheckThereAreDocOutputPort {
+
+    /**
+     * Notifies the flag from document search action.
+     * @param flag boolean - true if backup was found, false if not.
+     */
     void thereAreDoc(boolean flag);
-}
+
+}//CheckThereAreDocOutputPort

@@ -10,6 +10,15 @@
 
 package HexaTech.PortInterface;
 
+/**
+ * DeleteDoc output interface
+ */
 public interface DeleteDocOutputPort {
+
+    /**
+     * Notifies the message from deleting document action.
+     * @param result string - message text.
+     */
     void showDeletedDoc(String result);
-}
+
+}//DeleteDocOutputPort

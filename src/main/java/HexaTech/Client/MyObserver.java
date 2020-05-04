@@ -22,4 +22,5 @@ public interface MyObserver {
       * @return boolean - presenter's flag.
       */
      boolean notifyFlag();
-}
+
+}//MyObserver

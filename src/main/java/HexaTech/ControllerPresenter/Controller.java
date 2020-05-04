@@ -62,7 +62,7 @@ public class Controller {
      * @throws IOException if BDL can't be created from repo's stored document.
      */
     public void createBDL() throws IOException {
-        createBDLInputPort.createBdl();
+        createBDLInputPort.createBDL();
     }
 
     /**
@@ -79,4 +79,5 @@ public class Controller {
     public void checkThereAreDoc() {
         checkThereAreDocInputPort.checkThereAreDoc();
     }
-}
+
+}//Controller

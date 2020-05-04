@@ -10,8 +10,21 @@
 
 package HexaTech.PortInterface;
 
+/**
+ * AddDocument output interface.
+ */
 public interface AddDocToParseOutputPort {
+
+    /**
+     * Notifies the message from adding document action.
+     * @param result string - message text.
+     */
     void showAddDocument(String result);
 
+    /**
+     * Notifies the message from restoring backup action.
+     * @param result string - message text.
+     */
     void showBackUpRestored(String result);
-}
+
+}//AddDocToParseOutputPort

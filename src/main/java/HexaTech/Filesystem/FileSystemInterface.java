@@ -51,4 +51,5 @@ public interface FileSystemInterface {
      * @param doc string - path to the document to be deleted.
      */
     boolean deleteDoc(String doc);
-}
+
+}//FileSystemInterface

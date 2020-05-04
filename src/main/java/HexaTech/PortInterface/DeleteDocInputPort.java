@@ -10,6 +10,15 @@
 
 package HexaTech.PortInterface;
 
+/**
+ * DeleteDoc input interface.
+ */
 public interface DeleteDocInputPort {
+
+    /**
+     * Delete the specified document.
+     * @param path string - document to be deleted.
+     */
     void deleteDocs(String path);
-}
+
+}//DeleteDocInputPort

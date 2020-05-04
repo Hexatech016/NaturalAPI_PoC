@@ -88,4 +88,5 @@ public class Presenter extends Subject implements AddDocToParseOutputPort, Creat
         this.flag=flag;
         notifyFlagMe();
     }
-}
+
+}//Presenter

@@ -14,17 +14,29 @@ import HexaTech.PortInterface.CheckThereAreDocInputPort;
 import HexaTech.PortInterface.CheckThereAreDocOutputPort;
 import HexaTech.Repo.RepoInterface;
 
+/**
+ * Class used to manage a file search.
+ */
 public class CheckThereAreDoc implements CheckThereAreDocInputPort {
     CheckThereAreDocOutputPort checkThereAreDocOP;
     RepoInterface repoInterface;
 
+    /**
+     * CheckThereAreDoc standard constructor.
+     * @param checkThereAreDocOP CheckThereAreDocOutputPort - used to send output notifications.
+     * @param repo RepoInterface - used to communicate with Repo.
+     */
     public CheckThereAreDoc(CheckThereAreDocOutputPort checkThereAreDocOP, RepoInterface repo) {
         this.checkThereAreDocOP = checkThereAreDocOP;
         this.repoInterface = repo;
     }
 
+    /**
+     * Verifies if there are any loaded documents.
+     */
     @Override
     public void checkThereAreDoc() {
         checkThereAreDocOP.thereAreDoc(repoInterface.checkThereAreDoc());
     }
-}
+
+}//CheckThereAreDoc

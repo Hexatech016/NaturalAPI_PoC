@@ -10,6 +10,14 @@
 
 package HexaTech.PortInterface;
 
+/**
+ * CheckThereAreDoc input interface.
+ */
 public interface CheckThereAreDocInputPort {
+
+   /**
+    * Verifies if there are any loaded documents.
+    */
    void checkThereAreDoc();
-}
+
+}//CheckThereAreDocInputPort

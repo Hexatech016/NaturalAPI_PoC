@@ -23,4 +23,5 @@ public interface ModelInterface {
      * @return BDL - new BDL object.
      */
     BDL extractBDL(String text);
-}
+
+}//ModelInterface

@@ -98,4 +98,5 @@ public class CLI implements MyObserver {
     public boolean notifyFlag() {
         return presenter.isFlag();
     }
-}
+
+}//CLI

@@ -12,8 +12,21 @@ package HexaTech.PortInterface;
 
 import java.io.IOException;
 
+/**
+ * AddDocToParse input interface.
+ */
 public interface AddDocToParseInputPort {
+
+    /**
+     * Loads a new document.
+     * @throws IOException if an error occurs during loading process.
+     */
     void addDocument() throws IOException;
 
+    /**
+     * Load a backup file.
+     * @throws IOException if the file doesn't exist.
+     */
     void loadBackUp() throws IOException;
-}
+
+}//AddDocToParseInputPort

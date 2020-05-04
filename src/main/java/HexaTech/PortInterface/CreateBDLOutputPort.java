@@ -10,6 +10,15 @@
 
 package HexaTech.PortInterface;
 
+/**
+ * CreateBDL output interface.
+ */
 public interface CreateBDLOutputPort {
+
+    /**
+     * Notifies the message from creating BDL action.
+     * @param result string - message text.
+     */
     void showCreateBdl(String result);
-}
+
+}//CreateBDLOutputPort

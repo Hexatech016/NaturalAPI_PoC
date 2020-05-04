@@ -12,6 +12,15 @@ package HexaTech.PortInterface;
 
 import java.io.IOException;
 
+/**
+ * CreateBDL input interface.
+ */
 public interface CreateBDLInputPort {
-    void createBdl() throws IOException;
-}
+
+    /**
+     * Creates a new BDL object.
+     * @throws IOException if an error occurs while loading or parsing any file.
+     */
+    void createBDL() throws IOException;
+
+}//CreateBDLInputPort
