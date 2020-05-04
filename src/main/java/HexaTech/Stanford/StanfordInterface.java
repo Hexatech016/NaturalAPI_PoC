@@ -15,6 +15,15 @@ import HexaTech.Entities.DoubleStruct;
 
 import java.util.List;
 
+/**
+ * Stanford class interface.
+ */
 public interface StanfordInterface {
-    List<DoubleStruct> extract(String text);
+
+    /**
+     * Fills a list with elements found while parsing the given text.
+     * @param content string - document's content to analyze.
+     * @return List<DoubleStruct> - list of found elements.
+     */
+    List<DoubleStruct> extract(String content);
 }

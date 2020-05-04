@@ -5,32 +5,50 @@
  * @data 2020-04-25
  * @author Luca Marcon
  * @email hexatech016@gmail.com
- * @license
- * @changeLog
+ * @license MIT
  */
 
 package HexaTech.Entities;
 
+/**
+ * Class used to represent an object with two string parameters.
+ */
 public class DoubleStruct {
     String token;
     String lemma;
 
-    public DoubleStruct(String token, String lemma)
-    {
+    /**
+     * DoubleStruct class standard constructor.
+     * @param token string - token's value.
+     * @param lemma string - lemma's value.
+     */
+    public DoubleStruct(String token, String lemma){
         this.token=token;
         this.lemma=lemma;
     }
 
+    /**
+     * Returns lemma's value.
+     * @return string - lemma.
+     */
     public String getLemma() {
         return lemma;
     }
 
+    /**
+     * Returns token's value.
+     * @return string - token.
+     */
     public String getToken() {
         return token;
     }
 
+    /**
+     * Returns a string representative of DoubleStruct's content.
+     * @return string - DoubleStruct content.
+     */
     public String toString(){
         return token+ " " + lemma;
     }
 
-}
+}//DoubleStruct

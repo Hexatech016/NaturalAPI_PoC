@@ -5,8 +5,7 @@
  * @data 2020-04-25
  * @author Luca Marcon
  * @email hexatech016@gmail.com
- * @license
- * @changeLog
+ * @license MIT
  */
 
 package HexaTech.Filesystem;
@@ -15,8 +14,15 @@ import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.io.*;
 
+/**
+ * Class used to save and load documents.
+ */
 public class FileSystem implements FileSystemInterface {
 
+    /**
+     * Imports a document's path from disk.
+     * @return string - document path. Empty string if an error occurs.
+     */
     public String importPath(){
         JFrame dialog = new JFrame();
         JFileChooser chooser = new JFileChooser();
@@ -32,45 +38,66 @@ public class FileSystem implements FileSystemInterface {
         }else{
             return "";
         }//if_else
-    }
+    }//importPath
+
+    /**
+     * Extrapolates content from a document.
+     * @param path string - document's path.
+     * @return string - document's content.
+     * @throws IOException if the specified document doesn't exist.
+     */
     public String getContentFromPath(String path) throws IOException {
             File file = new File(path);
-
             BufferedReader br = new BufferedReader(new FileReader(file));
             StringBuilder sb = new StringBuilder();
             String line = br.readLine();
-
             while (line != null) {
                 sb.append(line);
                 sb.append("\n");
                 line = br.readLine();
-            }
+            }//while
             return  sb.toString();
-    }
+    }//getContentFromPath
+
+    /**
+     * Saves the specified content into a new document at the specified path.
+     * @param doc string - new document's content.
+     * @param path string - new document's path.
+     * @throws IOException if occurs an error while creating the file or writing into it.
+     */
     public void saveDoc(String doc, String path) throws IOException {
         try {
             // Open given file in append mode.
             BufferedWriter out = new BufferedWriter(
                     new FileWriter(path));
-            //throw new IOException("File not found");
             String[] righe=doc.split("\n");
             for(String riga: righe){
                 out.write(riga);
                 out.newLine();
-            }
+            }//for
             out.close();
-        }
-        catch (IOException e) {
+        }catch (IOException e) {
             System.out.println("exception occured " + e);
-        }
+        }//try_catch
+    }//saveDoc
 
-    }
+    /**
+     * Verifies if the specified document exists.
+     * @param doc string - path to the document to be searched.
+     * @return boolean - true if the document exists, false if not.
+     */
     public boolean existsDoc(String doc){
         File temp=new File(doc);
         return temp.exists();
     }
+
+    /**
+     * Deletes the specified document.
+     * @param doc string - path to the document to be deleted.
+     */
     public boolean deleteDoc(String doc){
         File temp=new File(doc);
         return temp.delete();
     }
-}
+
+}//FileSystem

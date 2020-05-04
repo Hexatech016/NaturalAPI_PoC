@@ -5,8 +5,7 @@
  * @data 2020-04-26
  * @author Alessio Barbiero
  * @email hexatech016@gmail.com
- * @license
- * @changeLog
+ * @license MIT
  */
 
 package HexaTech;
@@ -25,7 +24,9 @@ import HexaTech.Client.CLI;
 
 import java.io.IOException;
 
-
+/**
+ * Class used to manage the flow of program execution.
+ */
 public class MainDiscover {
     public static void main(String[] args) throws IOException {
         Presenter presenter=new Presenter();
@@ -40,6 +41,7 @@ public class MainDiscover {
         Controller controller=new Controller(addDocToParse,createBDL,deleteDoc,checkThereAreDoc);
         CLI client=new CLI(controller,presenter);
         client.useCase();
-    }
-}
+    }//main
+
+}//MainDiscover
 

@@ -5,8 +5,7 @@
  * @data 2020-04-25
  * @author Eduard Serban
  * @email hexatech016@gmail.com
- * @license
- * @changeLog
+ * @license MIT
  */
 
 package HexaTech.Interactor;
