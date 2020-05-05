@@ -68,10 +68,10 @@ public class MethodOfBAL {
             }
             count+=1;
         }
-        toReturnString+="        			]\n";
-        toReturnString+= "},"+ "\n"+ "        			\"responses\":{\n";
+        toReturnString+="        			],\n";
+        toReturnString+="        			\"responses\":{\n";
         toReturnString+= toRet.toString();
-        toReturnString+="\n}\n}\n";
+        toReturnString+="\n}\n}\n}\n";
         return toReturnString;
     }
 }
