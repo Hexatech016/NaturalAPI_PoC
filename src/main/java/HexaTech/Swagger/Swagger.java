@@ -41,6 +41,8 @@ public class Swagger implements SwaggerInterface {
             OpenAPI openAPI=new OpenAPIV3Parser().read(path);
             if(openAPI==null)
                 throw new IllegalArgumentException();
+            if(openAPI.getPaths()==null)
+                return result;
             for(Map.Entry<String, PathItem> method : openAPI.getPaths().entrySet())
                 result.add(getMethod(method));
             return result;
@@ -62,6 +64,8 @@ public class Swagger implements SwaggerInterface {
             OpenAPI openAPI=new OpenAPIV3Parser().read(path);
             if(openAPI==null)
                 throw new IllegalArgumentException();
+            if(openAPI.getComponents()==null || openAPI.getComponents().getSchemas()==null)
+                return result;
             for(Map.Entry<String,Schema> struct : openAPI.getComponents().getSchemas().entrySet())
                 result.add(getStructure(struct));
             return result;
@@ -82,10 +86,12 @@ public class Swagger implements SwaggerInterface {
             OpenAPI openAPI=new OpenAPIV3Parser().read(path);
             if(openAPI==null)
                 throw new IllegalArgumentException();
+            if(openAPI.getInfo()==null || openAPI.getInfo().getTitle()==null)
+                return "";
             return openAPI.getInfo().getTitle();
         }catch(IllegalArgumentException e){
             System.out.println("BAL's body can't be empty.");
-        }
+        }//try_catch
         return null;
     }//extractAPIName
 
@@ -100,6 +106,8 @@ public class Swagger implements SwaggerInterface {
             OpenAPI openAPI=new OpenAPIV3Parser().read(path);
             if(openAPI==null)
                 throw new IllegalArgumentException();
+            if(openAPI.getInfo()==null || openAPI.getInfo().getDescription()==null)
+                return "";
             return openAPI.getInfo().getDescription();
         }catch(IllegalArgumentException e){
             System.out.println("BAL's body can't be empty.");
