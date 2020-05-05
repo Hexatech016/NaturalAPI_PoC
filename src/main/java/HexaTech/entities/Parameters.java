@@ -34,8 +34,10 @@ public class Parameters {
                 "            				\"in\": \"query\",\n"+
                 "            				\"name\": \""+name+"\",\n"+
                 "            				\"description\": \""+description+"\",\n"+
-                "            				\"required\": \"true\",\n"+
-                "             				\"type\": \""+type+"\"\n"+
+                "            				\"required\": true,\n"+
+                "                           \"schema\": {\n"+
+                "             				    \"type\": \"string\" \n"+
+                "                           }\n	"+
                 "         				}\n";
 
     }
