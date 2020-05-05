@@ -53,7 +53,6 @@ public class Stanford implements iStanford {
                             builder.append(documents.sentences().get(0).lemmas().get(i));
                     }
                     toRit.setScenario(builder.toString());
-                    System.out.println(toRit.getScenario());
                     break;
                 case ("given"):
                     toRit.setGiven("sono bello dentro il given");
@@ -65,7 +64,6 @@ public class Stanford implements iStanford {
                             builder.append(dep.dep().lemma()+" ");
                     }
                     toRit.getWhen().add(builder.toString());
-                    System.out.println(toRit.getWhen());
                     sentinella="when";
                     break;
                 case ("then"):
@@ -74,7 +72,6 @@ public class Stanford implements iStanford {
                             builder.append(dep.dep().lemma()+" ");
                     }
                     toRit.setThen(builder.toString());
-                    System.out.println(toRit.getThen());
                     sentinella="then";
                     break;
             }

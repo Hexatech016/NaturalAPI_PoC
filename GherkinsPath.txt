@@ -1,1 +1,1 @@
-C:\Users\matbr\IdeaProjects\NaturalAPI_Design\gherkin.scenario
+C:\Users\aless\Desktop\NaturalAPI_PoC\gherkin.scenario
