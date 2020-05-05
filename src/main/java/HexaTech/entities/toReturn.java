@@ -30,14 +30,17 @@ public class toReturn {
         this.type = type;
     }
 
-    public String toString(){
+  public String toString(){
         return  "          				\""+response+"\": {\n"+
                 "           					\"description\": \""+description+"\",\n"+
-                "            					\"schema\": {\n"+
-                "              						\"type\": \""+type+"\"\n"+
-                "            					}\n"+
+                "                               \"content\": {\n"+
+                "                                   \"*/*\":  {\n"+
+                "            					         \"schema\": {\n"+
+                "              						         \"type\": \"string\"\n"+
+                "            					         }\n"+
+                "                                   }\n"+
+                "                              }\n"+
                 "          				}\n";
     }
-
 
 }
