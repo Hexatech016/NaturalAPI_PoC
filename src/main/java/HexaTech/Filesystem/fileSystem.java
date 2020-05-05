@@ -7,9 +7,14 @@ import java.io.*;
 public class fileSystem implements iFileSystem{
 
     public String importPath(){
+        JFrame dialog = new JFrame();
         JFileChooser chooser = new JFileChooser();
         FileNameExtensionFilter filter = new FileNameExtensionFilter("File di testo", "txt", "text");
         chooser.setFileFilter(filter);
+        dialog.getContentPane().add(chooser);
+        dialog.setAlwaysOnTop(true);
+        dialog.setVisible(false);
+        dialog.dispose();
         int returnVal = chooser.showOpenDialog(null);
         if(returnVal == JFileChooser.APPROVE_OPTION){
             return chooser.getSelectedFile().getAbsolutePath();
@@ -18,9 +23,14 @@ public class fileSystem implements iFileSystem{
     }
 
     public String importPathOfBDL(){
+        JFrame dialog = new JFrame();
         JFileChooser chooser = new JFileChooser();
         FileNameExtensionFilter filter = new FileNameExtensionFilter("File Json", "json");
         chooser.setFileFilter(filter);
+        dialog.getContentPane().add(chooser);
+        dialog.setAlwaysOnTop(true);
+        dialog.setVisible(false);
+        dialog.dispose();
         int returnVal = chooser.showOpenDialog(null);
         if(returnVal == JFileChooser.APPROVE_OPTION){
             return chooser.getSelectedFile().getAbsolutePath();
@@ -30,9 +40,14 @@ public class fileSystem implements iFileSystem{
 
     @Override
     public String importPathOfGherkin(){
+        JFrame dialog = new JFrame();
         JFileChooser chooser = new JFileChooser();
         FileNameExtensionFilter filter = new FileNameExtensionFilter("File Gherkin", "scenario");
         chooser.setFileFilter(filter);
+        dialog.getContentPane().add(chooser);
+        dialog.setAlwaysOnTop(true);
+        dialog.setVisible(false);
+        dialog.dispose();
         int returnVal = chooser.showOpenDialog(null);
         if(returnVal == JFileChooser.APPROVE_OPTION){
             return chooser.getSelectedFile().getAbsolutePath();
@@ -68,7 +83,7 @@ public class fileSystem implements iFileSystem{
             out.close();
         }
         catch (IOException e) {
-            System.out.println("exception occured " + e);
+            System.out.println("exception occurred " + e);
         }
 
     }
