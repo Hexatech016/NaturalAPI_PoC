@@ -1,33 +1,46 @@
+/**
+ * @file Model
+ * @version 0.0.1
+ * @type java
+ * @data 2020-04-25
+ * @author
+ * @email hexatech016@gmail.com
+ * @license MIT
+ */
+
 package HexaTech.Model;
 
-import HexaTech.Stanford.iStanford;
-import HexaTech.entities.*;
+import HexaTech.Stanford.StanfordInterface;
+import HexaTech.Entities.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Model implements iModel{
-    iStanford nlp;
+/**
+ * Class used to use Stanford's library tools into the project.
+ */
+public class Model implements ModelInterface {
+    StanfordInterface nlp;
 
-    public Model (iStanford enelpi){
-        nlp=enelpi;
-    }
-    @Override
-    public BDL estrai(String text) {
-        BDL bidiel=new BDL();
-        //List<DoubleToken> result = nlp.extract(text);
-        //this.addSost(result,bidiel);
-        //this.addVerb(result,bidiel);
-        //this.addPred(result,bidiel);
-        return bidiel;
+    /**
+     * Model's class constructor.
+     * @param nlp StanfordInterface - used to communicate with Stanford class.
+     */
+    public Model (StanfordInterface nlp){
+        this.nlp=nlp;
     }
 
-    private String[] getTextSplitted(String text){
-        String[] gherkinSplited;
+    /**
+     * Splits the given text into an array of strings.
+     * @param text string - text.
+     * @return string[] - array of strings.
+     */
+    private String[] getTextSplit(String text){
+        String[] gherkinSplit;
         String delimiter = "[\n]+[\n]";
-        gherkinSplited = text.split(delimiter);
+        gherkinSplit = text.split(delimiter);
         String part ="";
-        return gherkinSplited;
+        return gherkinSplit;
     }
 
     /**
@@ -37,52 +50,60 @@ public class Model implements iModel{
      */
     public BAL setBALFromGherkin(String text){
         BAL baLjSon = new BAL();
-        ArrayList<MethodOfBAL> methods = new ArrayList<MethodOfBAL>();
-        String[] gherkinSplit = getTextSplitted(text);
+        ArrayList<MethodBAL> methods = new ArrayList<MethodBAL>();
+        String[] gherkinSplit = getTextSplit(text);
         for (String temp: gherkinSplit) {
-            MethodOfBAL meth = new MethodOfBAL();
-            Gherkin gherk = nlp.extract(temp);
-            meth.setNome(gherk.getScenario());
+            MethodBAL meth = new MethodBAL();
+            Gherkin gherk = nlp.extractGherkin(temp);
+            meth.setName(gherk.getScenario());
             meth.setDescription(gherk.getDescription());
             meth.setTags("-");
-            toReturn toRet=new toReturn();
+            ToReturn toRet=new ToReturn();
             toRet.setDescription(gherk.getThen());
             meth.setToRet(toRet);
-            ArrayList<Parameters> params = new ArrayList<Parameters>();
+            ArrayList<Parameter> params = new ArrayList<Parameter>();
             for(String parameter : gherk.getWhen()){
-                Parameters param = new Parameters();
+                Parameter param = new Parameter();
                 param.setDescription("Default");
                 param.setName(parameter);
                 param.setType("string");
                 params.add(param);
             }//for
-            meth.setParam(params);
+            meth.setParameters(params);
             methods.add(meth);
         }//for
         baLjSon.setMethods(methods);
         return baLjSon;
     }//setBALFromGherkin
 
-    public void addSost(List<DoubleToken> list, BDL bidiel){
-        for(DoubleToken d: list){
+
+    /*@Override
+    public BDL extract(String text) {
+        BDL bdl=new BDL();
+        //List<DoubleToken> result = nlp.extractGherkin(text);
+        //this.addNoun(result,bdl);
+        //this.addVerb(result,bdl);
+        //this.addPred(result,bdl);
+        return bdl;
+    }
+
+    public void addNoun(List<DoubleStruct> list, BDL bdl){
+        for(DoubleStruct d: list){
             if(d.getToken().contains("NN"))
-                bidiel.aggiungiSost(d.getLemma(),1);
+                bdl.addNoun(d.getLemma(),1);
         }
     }
-    public void addVerb(List<DoubleToken> list, BDL bidiel){
-        for(DoubleToken d: list){
+    public void addVerb(List<DoubleStruct> list, BDL bdl){
+        for(DoubleStruct d: list){
             if(d.getToken().contains("VB"))
-                bidiel.aggiungiVerb(d.getLemma(),1);
+                bdl.addVerb(d.getLemma(),1);
         }
     }
-    public void addPred(List<DoubleToken> list, BDL bidiel){
-        for(DoubleToken d: list){
+    public void addPred(List<DoubleStruct> list, BDL bdl){
+        for(DoubleStruct d: list){
             if(d.getToken().contains("obj"))
-                bidiel.aggiungiPred(d.getLemma(),1);
+                bdl.addPredicate(d.getLemma(),1);
         }
-    }
+    }*/
 
-
-
-
-}
+}//Model

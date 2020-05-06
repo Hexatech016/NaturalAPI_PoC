@@ -1,27 +1,51 @@
+/**
+ * @file AddGherkin
+ * @version 0.0.1
+ * @type java
+ * @data 2020-04-25
+ * @author
+ * @email hexatech016@gmail.com
+ * @license MIT
+ */
+
 package HexaTech.Interactor;
 
-import HexaTech.Model.iModel;
+import HexaTech.Model.ModelInterface;
 import HexaTech.PortInterface.AddGherkinInputPort;
 import HexaTech.PortInterface.AddGherkinOutputPort;
-import HexaTech.Repo.iRepo;
+import HexaTech.Repo.RepoInterface;
 
 import java.io.IOException;
 
+/**
+ * Class used to manage a Gherkin insertion.
+ */
 public class AddGherkin implements AddGherkinInputPort {
 
-    AddGherkinOutputPort addGherkin;
-    iRepo repo;
-    iModel model;
+    AddGherkinOutputPort addGherkinOutputPort;
+    RepoInterface repoInterface;
+    ModelInterface modelInterface;
 
-    public AddGherkin(AddGherkinOutputPort addGout, iRepo rep, iModel mod){
-        addGherkin=addGout;
-        repo=rep;
-        model=mod;
+    /**
+     * AddGherkin class constructor.
+     * @param addGherkinOutputPort AddGherkinOutputPort - used to send output notifications.
+     * @param repoInterface RepoInterface - used to communicate with repo.
+     * @param modelInterface ModelInterface - used to communicate with model.
+     */
+    public AddGherkin(AddGherkinOutputPort addGherkinOutputPort, RepoInterface repoInterface, ModelInterface modelInterface){
+        this.addGherkinOutputPort=addGherkinOutputPort;
+        this.repoInterface=repoInterface;
+        this.modelInterface=modelInterface;
     }
 
+    /**
+     * Loads a new Gherkin scenario.
+     * @throws IOException if an error occurs during loading process.
+     */
     @Override
-    public void addFeature() throws IOException {
-        repo.ritornaPathOfGherkin();
-        addGherkin.showAddGherkin("Added scenario");
+    public void addGherkin() throws IOException {
+        repoInterface.setGherkinPath();
+        addGherkinOutputPort.showAddedGherkin("Scenario added.");
     }
-}
+
+}//AddGherkin

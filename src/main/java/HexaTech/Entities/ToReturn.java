@@ -1,36 +1,52 @@
-package HexaTech.entities;
+/**
+ * @file ToReturn
+ * @version 0.0.1
+ * @type java
+ * @data 2020-04-30
+ * @author
+ * @email hexatech016@gmail.com
+ * @license MIT
+ */
 
-public class toReturn {
+package HexaTech.Entities;
+
+/**
+ * Class to represent return object.
+ */
+public class ToReturn {
     String response="200";
     String description="toRet.des";
     String type="string";
 
-
-    public String getResponse() {
-        return response;
-    }
-
-    public void setResponse(String response) {
-        this.response = response;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
+    /**
+     * Sets return's description to the new value.
+     * @param description string - new description.
+     */
     public void setDescription(String description) {
         this.description = description;
     }
 
+    /**
+     * Returns return's type.
+     * @return string - type.
+     */
     public String getType() {
         return type;
     }
 
+    /**
+     * Sets return's type to the new value.
+     * @param type string - new type.
+     */
     public void setType(String type) {
         this.type = type;
     }
 
-  public String toString(){
+    /**
+     * Returns return's content as a string.
+     * @return string - return's content.
+     */
+    public String toString(){
         return  "          				\""+response+"\": {\n"+
                 "           					\"description\": \""+description+"\",\n"+
                 "                               \"content\": {\n"+
@@ -41,6 +57,6 @@ public class toReturn {
                 "                                   }\n"+
                 "                              }\n"+
                 "          				}\n";
-    }
+    }//toString
 
-}
+}//ToReturn

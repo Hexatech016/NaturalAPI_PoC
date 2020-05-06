@@ -1,35 +1,30 @@
-package HexaTech.entities;
+/**
+ * @file BAL
+ * @version 0.0.1
+ * @type java
+ * @data 2020-04-30
+ * @author
+ * @email hexatech016@gmail.com
+ * @license MIT
+ */
 
-import com.google.gson.Gson;
+package HexaTech.Entities;
 
 import java.util.List;
 
+/**
+ * Class used to represent a BAL object.
+ */
 public class BAL {
-    String intro="BAL.intro";
-    List<MethodOfBAL> methods;
+    String intro;
+    List<MethodBAL> methods;
 
-   /* public BALjSon(String casino, List<MethodOfBAL> meth) {
-
-    }*/
-
-    public String getIntro() {
-        return intro;
-    }
-    public List<MethodOfBAL> getMethods() {
-        return methods;
-    }
-
-    public void setIntro(String intro) {
-        this.intro = intro;
-    }
-
-    public void setMethods(List<MethodOfBAL> methods) {
+    /**
+     * Sets BAL's methods field with the given ones.
+     * @param methods List<MethodBAL> - methods to copy into BAL's field.
+     */
+    public void setMethods(List<MethodBAL> methods) {
         this.methods = methods;
-    }
-
-    public String BALToJson(){
-       Gson gsonSost=new Gson();
-       return gsonSost.toJson(this);
     }
 
     /**
@@ -51,14 +46,15 @@ public class BAL {
         //
         int last=methods.size()-1;
         int count=0;
-        for(MethodOfBAL method: this.methods){
+        for(MethodBAL method: this.methods){
             toRit+=method.toString();
             if (count<last){
                 toRit+=",";
-            }
+            }//if
             count+=1;
         }//for
         toRit+="}\n}";
         return toRit;
     }//toString
-}
+
+}//BAL

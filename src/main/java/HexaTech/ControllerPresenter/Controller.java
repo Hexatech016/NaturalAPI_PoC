@@ -1,3 +1,13 @@
+/**
+ * @file Controller
+ * @version 0.0.1
+ * @type java
+ * @data 2020-04-30
+ * @author
+ * @email hexatech016@gmail.com
+ * @license MIT
+ */
+
 package HexaTech.ControllerPresenter;
 
 import HexaTech.PortInterface.AddBDLInputPort;
@@ -6,27 +16,48 @@ import HexaTech.PortInterface.CreateBALInputPort;
 
 import java.io.IOException;
 
-
+/**
+ * Class used to invoke methods to perform, based on input actions.
+ */
 public class Controller {
-    AddBDLInputPort addBdl;
-    AddGherkinInputPort addGherkin;
-    CreateBALInputPort createBAL;
+    AddBDLInputPort addBDLInputPort;
+    AddGherkinInputPort addGherkinInputPort;
+    CreateBALInputPort createBALInputPort;
 
-    public Controller(AddBDLInputPort addB, AddGherkinInputPort addD, CreateBALInputPort crBAL){
-        addBdl=addB;
-        addGherkin=addD;
-        createBAL=crBAL;
+    /**
+     * Controller class constructor.
+     * @param addBDL AddBDLInputPort - used to communicate with AddDocument interactor.
+     * @param addGherkin AddGherkinInputPort - used to communicate with CreateAPI interactor.
+     * @param createBAL CreateBALInputPort - used to communicate with RemoveDocument interactor.
+     */
+    public Controller(AddBDLInputPort addBDL, AddGherkinInputPort addGherkin, CreateBALInputPort createBAL){
+        addBDLInputPort=addBDL;
+        addGherkinInputPort=addGherkin;
+        createBALInputPort=createBAL;
     }
 
+    /**
+     * Invokes AddBDL method to add a BDL.
+     * @throws IOException if the document to add doesn't exist.
+     */
     public void addBDLController() throws IOException {
-        addBdl.addBusinessDomainLanguage();
+        addBDLInputPort.addBDL();
     }
 
+    /**
+     * Invokes AddGherkin method to add a new scenario.
+     * @throws IOException if the document to add doesn't exist.
+     */
     public void addGherkinController() throws IOException {
-        addGherkin.addFeature();
+        addGherkinInputPort.addGherkin();
     }
 
-    public void createBAL() throws IOException {
-        createBAL.createBusinessApplicationLanguage();
+    /**
+     * Invokes CreateBAL method to create a new BAL object.
+     * @throws IOException if the document to add doesn't exist.
+     */
+    public void createBALController() throws IOException {
+        createBALInputPort.createBAL();
     }
-}
+
+}//Controller

@@ -1,23 +1,47 @@
+/**
+ * @file AddBDL
+ * @version 0.0.1
+ * @type java
+ * @data 2020-04-25
+ * @author
+ * @email hexatech016@gmail.com
+ * @license MIT
+ */
+
 package HexaTech.Interactor;
 
 import HexaTech.PortInterface.AddBDLInputPort;
 import HexaTech.PortInterface.AddBDLOutputPort;
-import HexaTech.Repo.iRepo;
+import HexaTech.Repo.RepoInterface;
 
 import java.io.IOException;
 
+/**
+ * Class used to manage a BDL insertion.
+ */
 public class AddBDL implements AddBDLInputPort {
 
-    AddBDLOutputPort addBDLout;
-    iRepo repo;
+    AddBDLOutputPort addBDLOutputPort;
+    RepoInterface repoInterface;
 
-    public AddBDL(AddBDLOutputPort Addout, iRepo rep){
-        addBDLout=Addout;
-        repo=rep;
+    /**
+     * AddBDL class constructor.
+     * @param addBDLOutputPort AddBDLOutputPort - used to send output notifications.
+     * @param repoInterface RepoInterface - used to communicate with repo.
+     */
+    public AddBDL(AddBDLOutputPort addBDLOutputPort, RepoInterface repoInterface){
+        this.addBDLOutputPort=addBDLOutputPort;
+        this.repoInterface=repoInterface;
     }
+
+    /**
+     * Loads a new BDL.
+     * @throws IOException if an error occurs during loading process.
+     */
     @Override
-    public void addBusinessDomainLanguage() throws IOException {
-        repo.ritornaPathOfBDL();
-        addBDLout.showAddBDL("Added a BDL");
+    public void addBDL() throws IOException {
+        repoInterface.setBDLPath();
+        addBDLOutputPort.showAddedBDL("BDL added.");
     }
-}
+
+}//AddBDL

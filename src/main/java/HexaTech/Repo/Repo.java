@@ -1,8 +1,18 @@
+/**
+ * @file Repo
+ * @version 0.0.1
+ * @type java
+ * @data 2020-04-30
+ * @author
+ * @email hexatech016@gmail.com
+ * @license MIT
+ */
+
 package HexaTech.Repo;
 
-import HexaTech.Filesystem.iFileSystem;
-import HexaTech.entities.BAL;
-import HexaTech.entities.BDL;
+import HexaTech.FileSystem.FileSystemInterface;
+import HexaTech.Entities.BAL;
+import HexaTech.Entities.BDL;
 //import com.fasterxml.jackson.databind.ObjectMapper;
 //import com.google.gson.Gson;
 
@@ -10,106 +20,146 @@ import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
-public class Repo implements iRepo {
-    List<String> lista;
-    iFileSystem fileSystem;
+/**
+ * Class used to submit actions from user to file system.
+ */
+public class Repo implements RepoInterface {
+    List<String> list;
+    FileSystemInterface fileSystem;
 
-
-
-    public List<String> getLista(){
-        return lista;
-    }
-
-    public Repo(iFileSystem file){
-        lista=new ArrayList<>();
+    /**
+     * Repo class constructor.
+     * @param file FileSystemInterface - used to communicate with file system.
+     */
+    public Repo(FileSystemInterface file){
+        list=new ArrayList<>();
         fileSystem=file;
     }
 
-    public void ritornaPath() throws IOException {
+    /**
+     * Returns documents' list.
+     * @return string - documents' list.
+     */
+    public List<String> getList(){
+        return list;
+    }
+
+    /**
+     * Returns loaded text document's path.
+     * @return string - document's path.
+     */
+    public void returnPaths() throws IOException {
         String temp=fileSystem.importPath();
         if(!temp.equalsIgnoreCase("")) {
-            lista.add(temp);
-            salvaDocumento();
-        }
-    }
+            list.add(temp);
+            saveDocument();
+        }//if
+    }//returnPaths
 
-    public void ritornaPathOfBDL() throws IOException {
-        String temp=fileSystem.importPathOfBDL();
+    /**
+     * Loads a new BDL from file system.
+     * @throws IOException if an error occurs during loading.
+     */
+    public void setBDLPath() throws IOException {
+        String temp=fileSystem.importPathBDL();
         if(!temp.equalsIgnoreCase("")) {
-            lista.add(temp);
+            list.add(temp);
             saveBDL();
-        }
-    }
+        }//if
+    }//setBDLPath
 
-    public void ritornaPathOfGherkin() throws IOException {
-        String temp=fileSystem.importPathOfGherkin();
+    /**
+     * Loads a new Gherkin from file system.
+     * @throws IOException if an error occurs during loading.
+     */
+    public void setGherkinPath() throws IOException {
+        String temp=fileSystem.importPathGherkin();
         if(!temp.equalsIgnoreCase("")) {
-            lista.add(temp);
+            list.add(temp);
             saveGherkin();
-        }
-    }
+        }//if
+    }//setGherkinPath
 
+    /**
+     * Saves the Gherkin's path into a backup file.
+     * @throws IOException if occurs an error while creating the file or writing into it.
+     */
     public void saveGherkin() throws IOException {
         StringBuilder temp= new StringBuilder();
-        for(String stringa: lista)
-            temp.append(stringa).append("\n");
-        this.fileSystem.saveDoc(temp.toString(), ".\\GherkinsPath.txt");
+        for(String string: list)
+            temp.append(string).append("\n");
+        this.fileSystem.saveDoc(temp.toString(), ".\\tempGherkin.txt");
     }
 
+    /**
+     * Saves the BDL's path into a backup file.
+     * @throws IOException if occurs an error while creating the file or writing into it.
+     */
     public void saveBDL() throws IOException {
         StringBuilder temp= new StringBuilder();
-        for(String stringa: lista)
-            temp.append(stringa).append("\n");
+        for(String string: list)
+            temp.append(string).append("\n");
         this.fileSystem.saveDoc(temp.toString(), ".\\tempBDL.txt");
     }
 
-    public void salvaDocumento() throws IOException {
+    /**
+     * Saves the document's path into a backup file.
+     * @throws IOException if occurs an error while creating the file or writing into it.
+     */
+    public void saveDocument() throws IOException {
         StringBuilder temp= new StringBuilder();
-        for(String stringa: lista)
-            temp.append(stringa).append("\n");
+        for(String string: list)
+            temp.append(string).append("\n");
         this.fileSystem.saveDoc(temp.toString(), ".\\temp.txt");
     }
-    public void caricaBackUp() throws IOException {
+
+    /**
+     * Loads content from a backup file and restore it.
+     * @throws IOException if the backup file doesn't exist.
+     */
+    public void loadBackUp() throws IOException {
         Scanner s = new Scanner(new File(".\\temp.txt"));
         while (s.hasNextLine()){
-            lista.add(s.nextLine());
-        }
+            list.add(s.nextLine());
+        }//while
         s.close();
-    }
-    public boolean elimina(String doc){
-        return fileSystem.eliminaDoc(doc);
+    }//loadBackUp
+
+    /**
+     * Deletes the specified document.
+     * @param doc string - path to the document to be deleted.
+     */
+    public boolean deleteDocument(String doc){
+        return fileSystem.deleteDoc(doc);
     }
 
-    public String returnContentFromTxt(String path) throws IOException {
-        return fileSystem.getContenutoFromPath(path);
+    /**
+     * Extrapolates content from a document.
+     * @param path string - document's path.
+     * @return string - document's content.
+     * @throws IOException if the specified document doesn't exist.
+     */
+    public String returnDocumentContent(String path) throws IOException {
+        return fileSystem.getContentFromPath(path);
     }
 
-    public void salvaBDL(BDL bdl) throws IOException {
+    /**
+     * Saves the BDL object into a new file.
+     * @param bdl BDL - BDL object.
+     * @throws IOException if an error occurs during saving process.
+     */
+    public void saveBDL(BDL bdl) throws IOException {
         fileSystem.saveDoc(bdl.toString(),".\\BDL.txt");
     }
 
+    /**
+     * Saves the BAL object into a new file.
+     * @param bal BAL - BAL object.
+     * @throws IOException if an error occurs during saving process.
+     */
     @Override
     public void saveBAL(BAL bal) throws IOException {
         fileSystem.saveDoc(bal.toString(),".\\bal.json");
     }
 
-    /*public void getBDLFromContentPath() throws IOException {
-        //Map<String,Integer> sost=new HashMap<>();
-        //Gson gson = new Gson();
-        ObjectMapper mapper = new ObjectMapper();
-        String sosts=fileSystem.getContenutoFromPath(".\\BDLsost.txt");
-        String verbs=fileSystem.getContenutoFromPath(".\\BDLverbs.txt");
-        String pred=fileSystem.getContenutoFromPath(".\\BDLpred.txt");
-
-
-        Map<String,Integer> sost=mapper.readValue(sosts, HashMap.class);
-        Map<String,Integer> verb=mapper.readValue(verbs, HashMap.class);
-        Map<String,Integer> preds=mapper.readValue(pred, HashMap.class);
-        BDL BDLtoGet=new BDL(sost,verb,preds);
-        System.out.println(BDLtoGet.toString());
-    }*/
-    /*public String getGherkinFromContentPath() throws IOException{
-        return fileSystem.getContenutoFromPath(".\\gherkin.txt");
-    }*/
-
-}
+}//Repo
