@@ -30,12 +30,15 @@ public class Model implements iModel{
         return gherkinSplited;
     }
 
-    public BAL provaGherkin(String text){
-
+    /**
+     * Fills a BAL object with the given text parsed elements.
+     * @param text string - text to be parsed.
+     * @return BAL - filled BAL object.
+     */
+    public BAL setBALFromGherkin(String text){
         BAL baLjSon = new BAL();
         ArrayList<MethodOfBAL> methods = new ArrayList<MethodOfBAL>();
         String[] gherkinSplit = getTextSplitted(text);
-
         for (String temp: gherkinSplit) {
             MethodOfBAL meth = new MethodOfBAL();
             Gherkin gherk = nlp.extract(temp);
@@ -52,14 +55,13 @@ public class Model implements iModel{
                 param.setName(parameter);
                 param.setType("string");
                 params.add(param);
-            }
+            }//for
             meth.setParam(params);
             methods.add(meth);
-        }
-
+        }//for
         baLjSon.setMethods(methods);
         return baLjSon;
-    }
+    }//setBALFromGherkin
 
     public void addSost(List<DoubleToken> list, BDL bidiel){
         for(DoubleToken d: list){

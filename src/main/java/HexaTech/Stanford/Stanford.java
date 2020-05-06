@@ -55,7 +55,7 @@ public class Stanford implements iStanford {
                     toRit.setScenario(builder.toString());
                     break;
                 case ("given"):
-                    toRit.setGiven("sono bello dentro il given");
+                    toRit.setGiven("given");
                     sentinella="given";
                     break;
                 case ("when"):

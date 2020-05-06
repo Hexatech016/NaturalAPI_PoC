@@ -19,7 +19,7 @@ public class Controller {
     }
 
     public void addBDLController() throws IOException {
-        addBdl.addBussinessDomainLanguage();
+        addBdl.addBusinessDomainLanguage();
     }
 
     public void addGherkinController() throws IOException {
@@ -27,6 +27,6 @@ public class Controller {
     }
 
     public void createBAL() throws IOException {
-        createBAL.createBussinessApplicationLanguage();
+        createBAL.createBusinessApplicationLanguage();
     }
 }

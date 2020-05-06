@@ -16,7 +16,7 @@ public class AddBDL implements AddBDLInputPort {
         repo=rep;
     }
     @Override
-    public void addBussinessDomainLanguage() throws IOException {
+    public void addBusinessDomainLanguage() throws IOException {
         repo.ritornaPathOfBDL();
         addBDLout.showAddBDL("Ho fatto le cose con successo");
     }

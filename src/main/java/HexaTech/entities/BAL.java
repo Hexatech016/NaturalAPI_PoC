@@ -32,15 +32,19 @@ public class BAL {
        return gsonSost.toJson(this);
     }
 
+    /**
+     * Returns BAL's content into a string.
+     * @return string - BAL's content.
+     */
     public String toString(){
         String toRit=
                 "{\n"+
                         "	\"openapi\": \"3.0.0\",\n"+
                         "	\"info\": {\n"+
                         "		\"version\": \"1.0.0\",\n"+
-                        "		\"title\": \"Inserisci un titolo\",\n"+
+                        "		\"title\": \"Test\",\n"+
                         "		\"license\": {\n"+
-                        "			\"name\": \"Inserisci una licenza\"\n	"+
+                        "			\"name\": \"MIT\"\n	"+
                         "		}\n	"+
                         "	},\n"+
                         "	\"paths\": {\n";
@@ -53,10 +57,8 @@ public class BAL {
                 toRit+=",";
             }
             count+=1;
-        }
+        }//for
         toRit+="}\n}";
         return toRit;
-    }
-
-
+    }//toString
 }

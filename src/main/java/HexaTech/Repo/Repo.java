@@ -91,7 +91,7 @@ public class Repo implements iRepo {
 
     @Override
     public void saveBAL(BAL bal) throws IOException {
-        fileSystem.saveDoc(bal.toString(),".\\provabal.json");
+        fileSystem.saveDoc(bal.toString(),".\\bal.json");
     }
 
     /*public void getBDLFromContentPath() throws IOException {

@@ -20,11 +20,11 @@ public class CreateBAL implements CreateBALInputPort {
     }
 
     @Override
-    public void createBussinessApplicationLanguage() throws IOException {
+    public void createBusinessApplicationLanguage() throws IOException {
 
         for (String path: repo.getLista()) {
             String document = repo.returnContentFromTxt(path);
-            BAL Bal=model.provaGherkin(document);
+            BAL Bal=model.setBALFromGherkin(document);
             repo.saveBAL(Bal);
         }
         createCreateOutput.showCreateBAL("Ho fatto le cose con successo");

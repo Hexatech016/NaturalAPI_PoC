@@ -5,5 +5,5 @@ import HexaTech.entities.BDL;
 
 public interface iModel {
     BDL estrai(String text);
-    BAL provaGherkin(String text);
+    BAL setBALFromGherkin(String text);
 }
