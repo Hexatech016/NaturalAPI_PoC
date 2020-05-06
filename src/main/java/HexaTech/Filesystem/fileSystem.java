@@ -15,7 +15,7 @@ public class fileSystem implements iFileSystem{
         dialog.setAlwaysOnTop(true);
         dialog.setVisible(false);
         dialog.dispose();
-        int returnVal = chooser.showOpenDialog(null);
+        int returnVal = chooser.showOpenDialog(dialog);
         if(returnVal == JFileChooser.APPROVE_OPTION){
             return chooser.getSelectedFile().getAbsolutePath();
         }else
@@ -31,7 +31,7 @@ public class fileSystem implements iFileSystem{
         dialog.setAlwaysOnTop(true);
         dialog.setVisible(false);
         dialog.dispose();
-        int returnVal = chooser.showOpenDialog(null);
+        int returnVal = chooser.showOpenDialog(dialog);
         if(returnVal == JFileChooser.APPROVE_OPTION){
             return chooser.getSelectedFile().getAbsolutePath();
         }else
@@ -48,7 +48,7 @@ public class fileSystem implements iFileSystem{
         dialog.setAlwaysOnTop(true);
         dialog.setVisible(false);
         dialog.dispose();
-        int returnVal = chooser.showOpenDialog(null);
+        int returnVal = chooser.showOpenDialog(dialog);
         if(returnVal == JFileChooser.APPROVE_OPTION){
             return chooser.getSelectedFile().getAbsolutePath();
         }else
