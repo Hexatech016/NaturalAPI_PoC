@@ -18,27 +18,27 @@ public class CLI implements myObserver{
     public void useCase() throws IOException {
         String temp;
         while (true) {
-            System.out.println("Use case: \n 1: Add a BDL \n 2: Add a Gherkin  \n 3: Extract BAL \n 4: Exit");
+            System.out.println("Use case: \n 1: Add a Gherkin  \n 2: Extract BAL \n 3: Exit");
             Scanner scan = new Scanner(System.in);
             temp = scan.nextLine();
             switch (temp) {
-                case ("1"):
+                /*case ("1"):
                     controller.addBDLController();
-                    break;
-                case ("2"):
+                    break;*/
+                case ("1"):
                     controller.addGherkinController();
                     break;
-                case ("3"):
+                case ("2"):
                     controller.createBAL();
                     break;
-                case ("4"):
+                case ("3"):
                     System.out.println("Esci");
                     System.exit(0);
 
             }
         }
     }
-
+//System.out.println("Use case: \n 1: Add a BDL \n 2: Add a Gherkin  \n 3: Extract BAL \n 4: Exit");
     @Override
     public void notifyme() {
         System.out.println(presenter.getS());
