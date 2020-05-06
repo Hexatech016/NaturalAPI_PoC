@@ -45,7 +45,6 @@ public class Repo implements iRepo {
         String temp=fileSystem.importPathOfGherkin();
         if(!temp.equalsIgnoreCase("")) {
             lista.add(temp);
-            System.out.println(lista);
             saveGherkin();
         }
     }

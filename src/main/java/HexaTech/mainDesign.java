@@ -26,8 +26,6 @@ public class mainDesign {
         CreateBAL bal=new CreateBAL(presenter,repo,model);
         Controller controller=new Controller(bidiel,gherkin,bal);
         CLI cliente=new CLI(controller,presenter);
-        //if(fileS.esisteDoc(".\\temp.txt"))
-            //cliente.existsBackUp();
         cliente.useCase();
     }
 }

@@ -53,7 +53,7 @@ public class MethodOfBAL {
         String toReturnString=
                 "		\"/"+name+"\": {\n"+
                         "			\"get\": {\n"+
-                        "				\"operationId\": \"ID\",\n"+
+                        "				\"operationId\": \""+name+"\",\n"+
                         "				\"description\": \""+description+"\",\n"+
                         "      				\"tags\": [\n"+//qua andrebbe una funzione per stampare i tags
                         "       				\""+tags+"\"\n"+

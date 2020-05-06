@@ -22,6 +22,6 @@ public class AddGherkin implements AddGherkinInputPort {
     @Override
     public void addFeature() throws IOException {
         repo.ritornaPathOfGherkin();
-        addGherkin.showAddGherkin("Ho fatto le cose con successo");
+        addGherkin.showAddGherkin("Added scenario");
     }
 }

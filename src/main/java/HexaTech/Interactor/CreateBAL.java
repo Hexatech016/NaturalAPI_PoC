@@ -27,6 +27,6 @@ public class CreateBAL implements CreateBALInputPort {
             BAL Bal=model.setBALFromGherkin(document);
             repo.saveBAL(Bal);
         }
-        createCreateOutput.showCreateBAL("Ho fatto le cose con successo");
+        createCreateOutput.showCreateBAL("BAL has been created");
     }
 }
