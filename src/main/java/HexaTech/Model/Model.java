@@ -54,15 +54,15 @@ public class Model implements ModelInterface {
         String[] gherkinSplit = getTextSplit(text);
         for (String temp: gherkinSplit) {
             MethodBAL meth = new MethodBAL();
-            Gherkin gherk = nlp.extractGherkin(temp);
-            meth.setName(gherk.getScenario());
-            meth.setDescription(gherk.getDescription());
+            Gherkin gherkin = nlp.extractGherkin(temp);
+            meth.setName(gherkin.getScenario());
+            meth.setDescription(gherkin.getDescription());
             meth.setTags("-");
             ToReturn toRet=new ToReturn();
-            toRet.setDescription(gherk.getThen());
+            toRet.setDescription(gherkin.getThen());
             meth.setToRet(toRet);
             ArrayList<Parameter> params = new ArrayList<Parameter>();
-            for(String parameter : gherk.getWhen()){
+            for(String parameter : gherkin.getWhen()){
                 Parameter param = new Parameter();
                 param.setDescription("Default");
                 param.setName(parameter);
