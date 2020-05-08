@@ -104,7 +104,7 @@ public class CLI implements MyObserver {
      */
     public void useCasePLA() throws IOException {
         String temp;
-        System.out.println("In which programming language do you want to generate API? \n 1: Java \n 2: JavaScript \n 3: Add a PLA \n 4: Exit");
+        System.out.println("In which programming language do you want to generate API? \n 1: Java \n 2: JavaScript \n 3: Generate from an external PLA \n 4: Exit");
         Scanner scan = new Scanner(System.in);
         temp = scan.nextLine();
         switch(temp){
