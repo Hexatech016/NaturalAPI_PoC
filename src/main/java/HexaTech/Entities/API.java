@@ -37,7 +37,7 @@ public class API{
      * @param APIStructures List<Structures> - API's structures list.
      */
     public API(String APIName, String APIComment, List<Method> APIMethods, List<Structure> APIStructures) {
-        this.APIName=APIName;
+        this.APIName=APIName.substring(0,1).toUpperCase() + APIName.substring(1);
         this.APIComment=APIComment;
         this.APIMethods=APIMethods;
         this.APIStructures=APIStructures;
@@ -56,7 +56,7 @@ public class API{
      * @param APIName string new API's name.
      */
     public void setAPIName(String APIName) {
-        this.APIName = APIName;
+        this.APIName = APIName.substring(0,1).toUpperCase() + APIName.substring(1);
     }
 
     /**

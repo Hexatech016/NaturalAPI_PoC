@@ -42,7 +42,7 @@ public class Structure {
      * @param structureName string - new structure's name.
      */
     public void setStructureName(String structureName) {
-        this.structureName = structureName;
+        this.structureName = structureName.substring(0,1).toUpperCase() + structureName.substring(1);
     }
 
     /**
