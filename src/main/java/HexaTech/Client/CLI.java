@@ -42,7 +42,7 @@ public class CLI implements MyObserver {
     public void useCase() throws IOException {
         String firstCase;
         while (true) {
-            System.out.println("Use Case: \n 1: Check if there are documents saved \n 2: Add a document  " +
+            System.out.println("Use Case: \n 1: Check if there are saved documents \n 2: Add a document  " +
                     "\n 3: Extract BDL \n 4: Exit");
             Scanner firstScanner = new Scanner(System.in);
             firstCase = firstScanner.nextLine();
