@@ -50,8 +50,8 @@ public class CreateBDL implements CreateBDLInputPort {
             bdl.mergeBDL(bdlToMerge);
         }//for
         repoInterface.saveBDL(bdl);
-        repoInterface.delete(".\\temp.txt");
-        createBDLOutputPort.showCreateBdl("BDL created in Discover");
+        repoInterface.delete(".\\Discover\\temp.txt");
+        createBDLOutputPort.showCreateBdl("BDL created into folder: Discover");
     }//createBDL
 
 }//CreateBDL

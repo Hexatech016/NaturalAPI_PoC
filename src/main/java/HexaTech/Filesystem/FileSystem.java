@@ -26,7 +26,7 @@ public class FileSystem implements FileSystemInterface {
     public String importPath(){
         JFrame dialog = new JFrame();
         JFileChooser chooser = new JFileChooser();
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("File di testo", "txt");
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Text file", "txt");
         chooser.setFileFilter(filter);
         dialog.getContentPane().add(chooser);
         dialog.setAlwaysOnTop(true);
@@ -68,16 +68,19 @@ public class FileSystem implements FileSystemInterface {
     public void saveDoc(String doc, String path) throws IOException {
         try {
             // Open given file in append mode.
+            File directory = new File("Discover");
+            if (! directory.exists())
+                directory.mkdir();
             BufferedWriter out = new BufferedWriter(
-                    new FileWriter(path));
-            String[] righe=doc.split("\n");
-            for(String riga: righe){
-                out.write(riga);
+                    new FileWriter(directory + "/" +path));
+            String[] rows=doc.split("\n");
+            for(String row: rows){
+                out.write(row);
                 out.newLine();
             }//for
             out.close();
         }catch (IOException e) {
-            System.out.println("exception occured " + e);
+            System.out.println("exception occurred " + e);
         }//try_catch
     }//saveDoc
 

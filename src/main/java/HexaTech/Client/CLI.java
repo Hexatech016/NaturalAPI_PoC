@@ -50,20 +50,20 @@ public class CLI implements MyObserver {
                 case ("1"):
                     controller.checkThereAreDoc();
                     if(notifyFlag()){
-                        System.out.println("There is a document saved. Do you want to load it? (Y/N)");
+                        System.out.println("There's a saved document. Do you want to load it? (Y/N)");
                     Scanner secondScanner = new Scanner(System.in);
                     String secondCase = secondScanner.nextLine();
                     if (secondCase.equalsIgnoreCase("y")) {
                         controller.restoreDocController();
                     }else if (secondCase.equalsIgnoreCase("n")){
-                        controller.deleteDocController(".\\temp.txt");
+                        controller.deleteDocController(".\\Discover\\temp.txt");
                         }else{
-                            System.out.println("Only Y/N");
+                            System.out.println("Please type Y or N");
                             break;
                         }//if_else
                     }//if_else
                     else
-                        System.out.println("There are no documents saved");
+                        System.out.println("There are no saved documents");
                     break;
                 case ("2"):
                     controller.addDocController();
@@ -73,10 +73,10 @@ public class CLI implements MyObserver {
                     if(notifyFlag())
                     controller.createBDL();
                     else
-                        System.out.println("There are no documents loaded to extract BDL");
+                        System.out.println("There are no loaded documents to extract BDL");
                     break;
                 case ("4"):
-                    System.out.println("Exit");
+                    System.out.println("Bye!");
                     System.exit(0);
             }//switch
         }//while

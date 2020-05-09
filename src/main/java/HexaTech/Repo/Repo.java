@@ -70,7 +70,7 @@ public class Repo implements RepoInterface {
      * @throws IOException if the backup file doesn't exist.
      */
     public void loadBackUp() throws IOException {
-        Scanner s = new Scanner(new File(".\\temp.txt"));
+        Scanner s = new Scanner(new File(".\\Discover\\temp.txt"));
         while (s.hasNextLine()){
             list.add(s.nextLine());
         }//while
@@ -114,13 +114,13 @@ public class Repo implements RepoInterface {
      */
     public void getBDLFromContentPath() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        String sosts=fileSystem.getContentFromPath(".\\BDLsost.txt");
-        String verbs=fileSystem.getContentFromPath(".\\BDLverbs.txt");
-        String pred=fileSystem.getContentFromPath(".\\BDLpred.txt");
-        Map<String,Integer> sost=mapper.readValue(sosts, HashMap.class);
-        Map<String,Integer> verb=mapper.readValue(verbs, HashMap.class);
-        Map<String,Integer> preds=mapper.readValue(pred, HashMap.class);
-        BDL BDLtoGet=new BDL(sost,verb,preds);
+        String noun=fileSystem.getContentFromPath(".\\Discover\\BDL_nouns.txt");
+        String verb=fileSystem.getContentFromPath(".\\Discover\\BDL_verbs.txt");
+        String pred=fileSystem.getContentFromPath(".\\Discover\\BDL_predicates.txt");
+        Map<String,Integer> nouns=mapper.readValue(noun, HashMap.class);
+        Map<String,Integer> verbs=mapper.readValue(verb, HashMap.class);
+        Map<String,Integer> predicates=mapper.readValue(pred, HashMap.class);
+        BDL BDLtoGet=new BDL(nouns,verbs,predicates);
         System.out.println(BDLtoGet.toString());
     }//getBDLFromContentPath
 
@@ -129,7 +129,7 @@ public class Repo implements RepoInterface {
      * @return boolean - true if the document exists, false if not.
      */
     public boolean checkThereAreDoc() {
-        return fileSystem.existsDoc(".\\temp.txt");
+        return fileSystem.existsDoc(".\\Discover\\temp.txt");
     }
 
 }//Repo
