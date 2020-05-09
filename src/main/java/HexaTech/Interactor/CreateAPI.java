@@ -43,7 +43,7 @@ public class CreateAPI implements CreateAPIInputPort{
      */
     @Override
     public void createAPI() throws IOException,IllegalArgumentException{
-        if(!repoInterface.existsPLA()){
+        if(!repoInterface.existsPLA() && !repoInterface.existsPLAJar()){
             createAPIOutputPort.showErrorTextAPI("PLA file doesn't exist.");
             createAPIOutputPort.showErrorCodeAPI(1);
         }else if(!repoInterface.existsBAL()){

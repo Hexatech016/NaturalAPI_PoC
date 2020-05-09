@@ -109,11 +109,11 @@ public class CLI implements MyObserver {
         temp = scan.nextLine();
         switch(temp){
             case ("1"):
-                controller.refreshPLAController(".\\PLA\\java.pla");
+                controller.refreshPLAController(".\\src\\main\\resources\\java.pla");
                 controller.createAPIController();
                 checkUseCase(notifyMeError());
             case ("2"):
-                controller.refreshPLAController(".\\PLA\\js.pla");
+                controller.refreshPLAController(".\\src\\main\\resources\\js.pla");
                 controller.createAPIController();
                 checkUseCase(notifyMeError());
             case("3"):

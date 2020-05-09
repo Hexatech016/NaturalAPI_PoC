@@ -147,6 +147,12 @@ public class Repo implements RepoInterface {
     }
 
     /**
+     * Verifies if the PLA document still exists in JAR archive.
+     * @return boolean - true if the document exists, false if not.
+     */
+    public boolean existsPLAJar(){return fileSystemInterface.existsDocJar(PLA);}
+
+    /**
      * Verifies if the BAL document still exists.
      * @return boolean - true if the document exists, false if not.
      */
@@ -154,5 +160,5 @@ public class Repo implements RepoInterface {
         return fileSystemInterface.existsDoc(BAL);
     }
 
-}
+}//Repo
 

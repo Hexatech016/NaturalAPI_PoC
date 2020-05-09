@@ -100,6 +100,12 @@ public interface RepoInterface {
     boolean existsPLA();
 
     /**
+     * Verifies if the PLA document still exists in JAR archive.
+     * @return boolean - true if the document exists, false if not.
+     */
+    boolean existsPLAJar();
+
+    /**
      * Verifies if the BAL document still exists.
      * @return boolean - true if the document exists, false if not.
      */

@@ -61,8 +61,16 @@ public interface FileSystemInterface{
     boolean existsDoc(String doc);
 
     /**
+     * Verifies if the specified document exists into JAR archive.
+     * @param doc string - path to the document to be searched.
+     * @return boolean - true if the document exists, false if not.
+     */
+    boolean existsDocJar(String doc);
+
+    /**
      * Delete the specified document.
      * @param doc string - path to the document to be deleted.
      */
     void deleteDoc(String doc);
-}
+
+}//FileSystemInterface

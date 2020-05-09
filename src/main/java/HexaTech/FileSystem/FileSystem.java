@@ -10,6 +10,7 @@
 
 package HexaTech.FileSystem;
 
+import HexaTech.MainDevelop;
 import com.google.common.io.Files;
 
 import javax.swing.*;
@@ -70,8 +71,17 @@ public class FileSystem implements FileSystemInterface {
      * @throws IOException if the specified document doesn't exist.
      */
     public String getContentFromPath(String path) throws IOException{
-        File file = new File(path);
-        BufferedReader br = new BufferedReader(new FileReader(file));
+        String jarName="/"+path.substring(path.lastIndexOf("\\")+1);
+        InputStream input=null;
+        BufferedReader br;
+        if(FileSystem.class.getResourceAsStream(jarName)!=null)
+            input = MainDevelop.class.getResourceAsStream(jarName);
+        if(input==null){
+            File file=new File(path);
+            br=new BufferedReader(new FileReader(file));
+        }else{
+            br = new BufferedReader(new InputStreamReader(input));
+        }
         StringBuilder sb = new StringBuilder();
         String line = br.readLine();
         while (line != null) {
@@ -81,6 +91,7 @@ public class FileSystem implements FileSystemInterface {
         }//while
         return sb.toString();
     }//getContentFromPath
+
 
     /**
      * Extracts output file requested extension from a PLA file.
@@ -108,12 +119,11 @@ public class FileSystem implements FileSystemInterface {
      */
     public void saveDoc(String doc, String path) throws IOException {
         try {
-            // Open given file in append mode.
             BufferedWriter out = new BufferedWriter(
                     new FileWriter(path));
-            String[] righe=doc.split("\n");
-            for(String riga: righe){
-                out.write(riga);
+            String[] rows=doc.split("\n");
+            for(String row: rows){
+                out.write(row);
                 out.newLine();
             }//for
             out.close();
@@ -130,6 +140,16 @@ public class FileSystem implements FileSystemInterface {
     public boolean existsDoc(String doc){
         File temp=new File(doc);
         return temp.exists();
+    }//existsDoc
+
+    /**
+     * Verifies if the specified document exists into JAR archive.
+     * @param doc string - path to the document to be searched.
+     * @return boolean - true if the document exists, false if not.
+     */
+    public boolean existsDocJar(String doc){
+        String jarName="/"+doc.substring(doc.lastIndexOf("\\")+1);
+        return FileSystem.class.getResourceAsStream(jarName)!=null;
     }
 
     /**
