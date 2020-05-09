@@ -41,7 +41,7 @@ public class CLI implements MyObserver {
     public void useCase() throws IOException{
         String temp;
         while (true){
-            System.out.println("Use case: \n 1: Add a Gherkin  \n 2: Extract BAL \n 3: Exit");
+            System.out.println("Use case: \n 1: Add a Gherkin file  \n 2: Extract BAL \n 3: Exit");
             Scanner scan = new Scanner(System.in);
             temp = scan.nextLine();
             switch (temp) {
@@ -55,7 +55,7 @@ public class CLI implements MyObserver {
                     controller.createBALController();
                     break;
                 case ("3"):
-                    System.out.println("Esci");
+                    System.out.println("Bye!");
                     System.exit(0);
             }//switch
         }//while

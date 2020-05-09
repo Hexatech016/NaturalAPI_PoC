@@ -46,15 +46,14 @@ public class Repo implements RepoInterface {
 
     /**
      * Returns loaded text document's path.
-     * @return string - document's path.
      */
-    public void returnPaths() throws IOException {
+    public void importPath() throws IOException {
         String temp=fileSystem.importPath();
         if(!temp.equalsIgnoreCase("")) {
             list.add(temp);
             saveDocument();
         }//if
-    }//returnPaths
+    }//importPath
 
     /**
      * Loads a new BDL from file system.
@@ -118,7 +117,7 @@ public class Repo implements RepoInterface {
      * @throws IOException if the backup file doesn't exist.
      */
     public void loadBackUp() throws IOException {
-        Scanner s = new Scanner(new File(".\\temp.txt"));
+        Scanner s = new Scanner(new File(".\\Design\\temp.txt"));
         while (s.hasNextLine()){
             list.add(s.nextLine());
         }//while
@@ -159,7 +158,7 @@ public class Repo implements RepoInterface {
      */
     @Override
     public void saveBAL(BAL bal) throws IOException {
-        fileSystem.saveDoc(bal.toString(),".\\bal.json");
+        fileSystem.saveDoc(bal.toString(),".\\BAL.json");
     }
 
 }//Repo

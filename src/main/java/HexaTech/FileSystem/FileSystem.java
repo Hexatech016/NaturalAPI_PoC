@@ -106,9 +106,12 @@ public class FileSystem implements FileSystemInterface {
      * @throws IOException if occurs an error while creating the file or writing into it.
      */
     public void saveDoc(String doc, String path) throws IOException {
+        File directory = new File("Design");
+        if (! directory.exists())
+            directory.mkdir();
         // Open given file in append mode.
         BufferedWriter out = new BufferedWriter(
-                new FileWriter(path));
+                new FileWriter(directory + "/" + path));
         String[] rows=doc.split("\n");
         for(String riga: rows){
             out.write(riga);

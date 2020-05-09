@@ -31,7 +31,7 @@ public interface RepoInterface {
      * Returns loaded text document's path.
      * @return string - document's path.
      */
-    void returnPaths() throws IOException;
+    void importPath() throws IOException;
 
     /**
      * Loads a new BDL from file system.

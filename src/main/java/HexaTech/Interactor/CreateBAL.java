@@ -46,10 +46,10 @@ public class CreateBAL implements CreateBALInputPort {
     public void createBAL() throws IOException {
         for (String path: repoInterface.getList()) {
             String document = repoInterface.returnDocumentContent(path);
-            BAL Bal=modelInterface.setBALFromGherkin(document);
-            repoInterface.saveBAL(Bal);
+            BAL BAL=modelInterface.setBALFromGherkin(document);
+            repoInterface.saveBAL(BAL);
         }//for
-        createBALOutputPort.showCreatedBAL("BAL has been created.");
+        createBALOutputPort.showCreatedBAL("BAL created into folder: Design.");
     }//createBAL
 
 }//CreateBAL
