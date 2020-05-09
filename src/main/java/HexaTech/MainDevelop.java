@@ -1,6 +1,6 @@
 /**
  * @file main
- * @version 0.0.1
+ * @version 1.0.0
  * @type java
  * @data 2020-05-01
  * @author Jacopo Battilana
