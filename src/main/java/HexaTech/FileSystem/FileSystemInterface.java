@@ -1,3 +1,13 @@
+/**
+ * @file FileSystemInterface
+ * @version 1.0.0
+ * @type java
+ * @data 2020-04-30
+ * @author Eduard Serban
+ * @email hexatech016@gmail.com
+ * @license MIT
+ */
+
 package HexaTech.FileSystem;
 
 import java.io.IOException;

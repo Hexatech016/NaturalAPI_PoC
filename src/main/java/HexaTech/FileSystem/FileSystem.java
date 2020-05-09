@@ -1,9 +1,9 @@
 /**
  * @file FileSystem
- * @version 0.0.1
+ * @version 1.0.0
  * @type java
  * @data 2020-04-30
- * @author
+ * @author Eduard Serban
  * @email hexatech016@gmail.com
  * @license MIT
  */

@@ -1,9 +1,9 @@
 /**
  * @file MainDesign
- * @version 0.0.1
+ * @version 1.0.0
  * @type java
  * @data 2020-04-26
- * @author
+ * @author Gerardo Kokoshari
  * @email hexatech016@gmail.com
  * @license MIT
  */

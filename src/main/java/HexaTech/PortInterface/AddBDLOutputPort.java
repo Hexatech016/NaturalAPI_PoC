@@ -1,9 +1,9 @@
 /**
  * @file AddBDLOutputPort
- * @version 0.0.1
+ * @version 1.0.0
  * @type java
  * @data 2020-04-25
- * @author
+ * @author Matteo Brosolo
  * @email hexatech016@gmail.com
  * @license MIT
  */
