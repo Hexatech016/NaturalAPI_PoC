@@ -103,7 +103,7 @@ public class Repo implements RepoInterface {
      * @throws IOException if the backup file doesn't exist.
      */
     public void loadBackUp() throws IOException {
-        Scanner s = new Scanner(new File(".\\temp.txt"));
+        Scanner s = new Scanner(new File(".\\Develop\\temp.txt"));
         if(s.hasNextLine())
             BAL=s.nextLine();
         s.close();

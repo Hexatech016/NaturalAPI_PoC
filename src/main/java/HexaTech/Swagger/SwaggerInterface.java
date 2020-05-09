@@ -49,4 +49,4 @@ public interface SwaggerInterface{
      */
     List<Structure> extractAPIStructures(String path) throws IllegalArgumentException;
 
-}
+}//SwaggerInterface

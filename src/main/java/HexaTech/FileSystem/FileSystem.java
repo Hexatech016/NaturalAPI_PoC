@@ -81,7 +81,7 @@ public class FileSystem implements FileSystemInterface {
             br=new BufferedReader(new FileReader(file));
         }else{
             br = new BufferedReader(new InputStreamReader(input));
-        }
+        }//if_else
         StringBuilder sb = new StringBuilder();
         String line = br.readLine();
         while (line != null) {
@@ -119,8 +119,11 @@ public class FileSystem implements FileSystemInterface {
      */
     public void saveDoc(String doc, String path) throws IOException {
         try {
+            File directory = new File("Develop");
+            if (!directory.exists())
+                directory.mkdir();
             BufferedWriter out = new BufferedWriter(
-                    new FileWriter(path));
+                    new FileWriter(directory + "/" + path));
             String[] rows=doc.split("\n");
             for(String row: rows){
                 out.write(row);

@@ -30,4 +30,5 @@ public interface MyObserver {
      * @return boolean - status.
      */
     boolean notifyMeDone();
-}
+
+}//MyObserver

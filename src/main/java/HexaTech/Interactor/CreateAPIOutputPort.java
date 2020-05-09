@@ -32,4 +32,5 @@ public interface CreateAPIOutputPort {
      * @param result string - message text.
      */
     void showErrorTextAPI(String result);
-}
+
+}//CreateAPIOutputPort

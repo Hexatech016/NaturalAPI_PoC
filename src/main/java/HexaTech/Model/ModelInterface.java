@@ -23,4 +23,5 @@ public interface ModelInterface{
      * @return API - new API object.
      */
     API setAPI(String path);
-}
+
+}//ModelInterface

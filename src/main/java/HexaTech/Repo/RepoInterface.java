@@ -110,4 +110,5 @@ public interface RepoInterface {
      * @return boolean - true if the document exists, false if not.
      */
     boolean existsBAL();
-}
+
+}//RepoInterface

@@ -46,15 +46,13 @@ public class CLI implements MyObserver {
         if (risp.equalsIgnoreCase("y")) {
             controller.restoreDocController();
             return true;
-        }
-        else if (risp.equalsIgnoreCase("n")){
-            controller.deleteDocController(".\\temp.txt");
+        }else if (risp.equalsIgnoreCase("n")){
+            controller.deleteDocController(".\\Develop\\temp.txt");
             return false;
-        }
-        else{
+        }else{
             System.out.println("Please insert Y or N.");
             return existsBackUp();
-        }
+        }//if_else
     }//existsBackup
 
     /**
@@ -80,7 +78,7 @@ public class CLI implements MyObserver {
                     System.exit(0);
                 default:
                     useCase(condition);
-            }
+            }//switch
         }else{
             System.out.println("Use case: \n 1: Generate API \n 2: Exit");
             Scanner scan = new Scanner(System.in);
@@ -94,8 +92,8 @@ public class CLI implements MyObserver {
                     System.exit(0);
                 default:
                     useCase(condition);
-            }
-        }
+            }//switch
+        }//if_else
     }//useCase
 
     /**
@@ -129,7 +127,7 @@ public class CLI implements MyObserver {
                 System.exit(0);
             default:
                 useCasePLA();
-        }
+        }//switch
     }//useCasePLA
 
     /**
@@ -153,7 +151,7 @@ public class CLI implements MyObserver {
             case(4):
                 System.out.println("Add a valid PLA.");
                 useCasePLA();
-        }
+        }//switch
     }//checkUseCase
 
     /**

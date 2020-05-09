@@ -54,7 +54,7 @@ public class CreateAPI implements CreateAPIInputPort{
             String str=repoInterface.getBAL(), pla=repoInterface.getPLA();
             api=modelInterface.setAPI(str);
             if(api==null){
-                repoInterface.deleteDocument(".\\temp.txt");
+                repoInterface.deleteDocument(".\\Develop\\temp.txt");
                 createAPIOutputPort.showErrorCodeAPI(3);
             }else{//if_else_2
                 if(repoInterface.returnDocumentContent(pla).equals("")){
@@ -65,8 +65,8 @@ public class CreateAPI implements CreateAPIInputPort{
                     createAPIOutputPort.showErrorCodeAPI(4);
                 }else{//if_else_3
                     repoInterface.saveAPI(api, api.getAPIName(), repoInterface.returnPLAExtension(pla));
-                    repoInterface.deleteDocument(".\\temp.txt");
-                    createAPIOutputPort.showCreatedAPI("API ."+repoInterface.returnPLAExtension(pla)+" generated into Develop folder.   ");
+                    repoInterface.deleteDocument(".\\Develop\\temp.txt");
+                    createAPIOutputPort.showCreatedAPI("API ."+repoInterface.returnPLAExtension(pla)+" generated into folder: Develop.");
                     createAPIOutputPort.showErrorCodeAPI(0);
                 }//if_else_3
             }//if_else_2

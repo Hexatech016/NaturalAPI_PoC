@@ -111,7 +111,7 @@ public class Swagger implements SwaggerInterface {
             return openAPI.getInfo().getDescription();
         }catch(IllegalArgumentException e){
             System.out.println("BAL's body can't be empty.");
-        }
+        }//try_catch
         return null;
     }//extractAPIDescription
 
@@ -161,7 +161,7 @@ public class Swagger implements SwaggerInterface {
         Map<String,Schema> temp=struct.getValue().getProperties();
         for(Map.Entry<String, Schema> schema:temp.entrySet()){
             tempStruct.put(schema.getKey(),schema.getValue().getType());
-        }
+        }//for
         return tempStruct;
     }//getStructureParam
 
@@ -179,7 +179,7 @@ public class Swagger implements SwaggerInterface {
                 return arraySchema.getItems().get$ref().substring("#/components/schemas/".length())+"[]";
             else
                 return arraySchema.getItems().getType()+"[]";
-        }
+        }//if
         if(schema!=null && schema.get$ref()!=null && !schema.get$ref().equals(""))
             return schema.get$ref().substring("#/components/schemas/".length());
         if(schema==null || (schema.getType()==null || schema.getType().equals("") || schema.getType().equals("object") || schema.getType()==null))
