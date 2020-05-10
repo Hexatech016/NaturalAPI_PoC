@@ -1,6 +1,6 @@
 /**
  * @file MainDiscover
- * @version 1.0.0
+ * @version 2.0.0
  * @type java
  * @data 2020-04-26
  * @author Alessio Barbiero
